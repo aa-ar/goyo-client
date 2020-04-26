@@ -29,16 +29,18 @@ export const FontWeight: { [weight in FontWeight]: FontWeight } = {
 
 interface ITextOwnProps {
   weight?: FontWeight;
+  size?: number;
 }
 
 type TextProps = ITextOwnProps & RNTextProps;
 
-export const Text: React.FC<TextProps> = ({ weight = FontWeight.REGULAR, ...props }) =>
-  <RNText style={styles(weight).text} {...props} />;
+export const Text: React.FC<TextProps> = ({ weight = FontWeight.REGULAR, size = 16, ...props }) =>
+  <RNText style={styles(weight, size).text} {...props} />;
 
-const styles = (fontWeight: FontWeight) => StyleSheet.create({
+const styles = (fontWeight: FontWeight, size: number) => StyleSheet.create({
   text: {
     color: colors.darkGray,
-    fontFamily: fontWeight
+    fontFamily: fontWeight,
+    fontSize: size
   }
 });
