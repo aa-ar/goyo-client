@@ -2,6 +2,7 @@ import React from "react";
 import { Text as RNText, TextProps as RNTextProps, StyleSheet } from "react-native";
 
 import fonts from "../fonts";
+import colors from "../colors";
 
 type FontWeight =
   | "THIN"
@@ -37,6 +38,7 @@ export const Text: React.FC<TextProps> = ({ weight = FontWeight.REGULAR, ...prop
 
 const styles = (fontWeight: FontWeight) => StyleSheet.create({
   text: {
+    color: colors.darkGray,
     fontFamily: fontWeight
   }
 });
